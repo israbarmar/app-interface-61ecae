@@ -42,7 +42,7 @@ code {
   --ring: oklch(0.82 0.14 75);
   --header: oklch(0.09 0.008 262);
   --header-foreground: oklch(0.98 0 0);
-  --map-ocean: oklch(0.17 0.025 262);
+  --map-ocean: #001033;
   --map-land: oklch(0.36 0.025 262);
   --map-coast: oklch(0.5 0.03 262);
   --map-grid: oklch(0.28 0.025 262);
