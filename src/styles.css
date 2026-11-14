@@ -16,8 +16,8 @@ code {
 }
 
 :root {
-  --font-body: Inter;
-  --font-heading: Inter;
+  --font-body: "Inter";
+  --font-heading: "Inter";
   --font-code: 'JetBrains Mono', ui-monospace, Menlo, monospace;
   --content-width: 80rem;
   --reading-width: 46rem;
