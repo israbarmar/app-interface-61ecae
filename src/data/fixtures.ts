@@ -1,4 +1,4 @@
-import type { Overview, Photo, Site } from './types'
+import type { ChartSpec, Overview, Photo, Site } from './types'
 
 /**
  * Demo data shown until the Python backend is connected (VITE_API_URL).
@@ -174,6 +174,65 @@ export const demoSites: Site[] = [
         label: 'Stellar Host',
         info: 'Proxima Cen · M dwarf',
         addData: '4.2 ly · 3,040 K',
+      },
+    ],
+  },
+]
+
+const axis = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+export const demoCharts: ChartSpec[] = [
+  {
+    id: 'detections',
+    title: 'Detections by method',
+    description:
+      'Candidate signals harvested each cycle, split by detection method. Transit surveys dominate most cycles, while radial-velocity follow-ups peak when the southern sites have long winter nights.',
+    type: 'area',
+    labels: axis,
+    series: [
+      {
+        label: 'Transit',
+        data: [790, 960, 630, 270, 290, 20, 950, 440, 110, 860],
+      },
+      {
+        label: 'Radial velocity',
+        data: [270, 580, 100, 420, 550, 90, 220, 200, 580, 110],
+      },
+    ],
+  },
+  {
+    id: 'signal-quality',
+    title: 'Signal quality per cycle',
+    description:
+      'Average signal-to-noise score of the confirmed candidates compared with the false-positive score. The closer the two lines get, the more manual vetting a cycle needs.',
+    type: 'line',
+    labels: axis,
+    series: [
+      {
+        label: 'Signal-to-noise',
+        data: [520, 650, 550, 180, 1000, 640, 550, 830, 120, 750],
+      },
+      {
+        label: 'False positives',
+        data: [210, 760, 60, 250, 200, 90, 240, 340, 640, 280],
+      },
+    ],
+  },
+  {
+    id: 'observing-hours',
+    title: 'Observing hours vs. confirmations',
+    description:
+      'Telescope hours scheduled in each cycle next to the number of candidates promoted to confirmed planets. More hours do not always mean more confirmations — weather and target choice matter too.',
+    type: 'bar',
+    labels: axis,
+    series: [
+      {
+        label: 'Observing hours',
+        data: [810, 860, 500, 990, 350, 80, 410, 970, 400, 600],
+      },
+      {
+        label: 'Confirmations',
+        data: [960, 740, 740, 80, 1000, 460, 330, 90, 930, 370],
       },
     ],
   },

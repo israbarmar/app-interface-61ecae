@@ -3,6 +3,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { loadDashboard } from '@/data/api'
 import { GlobeLogo } from '@/components/galaxy/globe-logo'
+import { ChartsSection, GoUpButton } from '@/components/galaxy/charts-section'
 import { EmptyCard, InfoCard } from '@/components/galaxy/info-card'
 import { PhotoCarousel } from '@/components/galaxy/photo-carousel'
 import { WorldMap } from '@/components/galaxy/world-map'
@@ -13,7 +14,7 @@ export const Route = createFileRoute('/')({
 })
 
 function Home() {
-  const { overview, sites, source } = Route.useLoaderData()
+  const { overview, sites, charts, source } = Route.useLoaderData()
   const [selectedId, setSelectedId] = useState<string | null>(
     sites[0]?.id ?? null,
   )
@@ -137,7 +138,10 @@ function Home() {
             </div>
           </div>
         </section>
+
+        <ChartsSection charts={charts} />
       </main>
+      <GoUpButton />
     </div>
   )
 }

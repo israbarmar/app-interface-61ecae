@@ -52,3 +52,22 @@ def sites():
             ],
         }
     ]
+
+
+@app.get("/charts")
+def charts():
+    # type: "area" (filled lines), "line" (lines with points) or "bar" (grouped bars).
+    # Each series needs one value per label.
+    return [
+        {
+            "id": "detections",
+            "title": "Detections by method",
+            "description": "Candidate signals per cycle, split by detection method.",
+            "type": "area",
+            "labels": list(range(10)),
+            "series": [
+                {"label": "Transit", "data": [790, 960, 630, 270, 290, 20, 950, 440, 110, 860]},
+                {"label": "Radial velocity", "data": [270, 580, 100, 420, 550, 90, 220, 200, 580, 110]},
+            ],
+        }
+    ]

@@ -167,3 +167,13 @@ code {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+/* Background behind the charts: the same space photo, fading to a lighter sky as in the wireframe. */
+@utility starfield-charts {
+  background-color: var(--map-ocean);
+  background-image:
+    linear-gradient(to bottom, rgba(0, 16, 51, 0.8), rgba(0, 16, 51, 0.55) 60%, rgba(0, 16, 51, 0.45)),
+    url('/img/space.jpg');
+  background-size: cover;
+  background-position: center;
+}

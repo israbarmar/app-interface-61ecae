@@ -28,7 +28,8 @@ The frontend reads its data from `src/data/api.ts`. When `VITE_API_URL` is set (
 | --------------- | ----------------------------------------- |
 | `GET /overview` | page copy (`title`, `intro`, `headline`, `subheadline`, `mapLabel`, `mapHint`) — optional |
 | `GET /sites`    | array of observatories with `lat`, `lon`, `photos`, and card `fields` |
+| `GET /charts`   | array of charts (`id`, `title`, `description`, `type`: `area`/`line`/`bar`, `labels`, `series[]` with `label` + `data`) — optional |
 
-The exact shapes are in `src/data/types.ts`, and `backend/example_api.py` is a minimal FastAPI service that returns them. Enable CORS for the Netlify domain. If the backend is unset or unreachable, the app falls back to the demo data in `src/data/fixtures.ts`, and the header badge shows "Demo data" instead of "Live data".
+The exact shapes are in `src/data/types.ts`, and `backend/example_api.py` is a minimal FastAPI service that returns them. Enable CORS for the Netlify domain. Charts are drawn with Chart.js (`src/components/galaxy/stat-chart.tsx`); Leaflet is installed for a future interactive map. If the backend is unset or unreachable, the app falls back to the demo data in `src/data/fixtures.ts`, and the header badge shows "Demo data" instead of "Live data".
 
 Netlify does not run Python services, so host the backend separately (e.g. Render, Fly.io, Railway, Cloud Run) and point `VITE_API_URL` at it. `VITE_` variables are baked in at build time, so redeploy after changing it.
