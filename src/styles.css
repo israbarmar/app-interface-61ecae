@@ -162,7 +162,7 @@ code {
   background-color: var(--map-ocean);
   background-image: 
     linear-gradient(to bottom, rgba(0, 16, 51, 0.75), rgba(0, 16, 51, 0.85)),
-    url('/img/espacio.jpg'); /* <-- Cambia esto por el nombre exacto de tu archivo de imagen */
+    url('/img/space.jpg'); /* <-- Cambia esto por el nombre exacto de tu archivo de imagen */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
