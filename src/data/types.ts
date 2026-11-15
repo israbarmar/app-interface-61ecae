@@ -41,6 +41,26 @@ export interface Overview {
 export interface DashboardData {
   overview: Overview
   sites: Site[]
+  charts: ChartSpec[]
   /** Where the data came from, shown as a status badge. */
   source: 'api' | 'demo'
+}
+
+/** One data series inside a chart (e.g. one line, one area or one bar group). */
+export interface ChartSeries {
+  label: string
+  /** One value per entry in `ChartSpec.labels`. */
+  data: number[]
+}
+
+/** A statistics chart shown below the map. */
+export interface ChartSpec {
+  id: string
+  title: string
+  description: string
+  /** `area` = filled lines, `line` = lines with points, `bar` = grouped bars. */
+  type: 'area' | 'line' | 'bar'
+  /** X-axis labels. */
+  labels: (string | number)[]
+  series: ChartSeries[]
 }
